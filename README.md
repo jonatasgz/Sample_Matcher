@@ -1,3 +1,6 @@
+![GitHub Tag](https://img.shields.io/github/v/tag/jonatasgz/Sample_Matcher)
+![GitHub License](https://img.shields.io/github/license/jonatasgz/Sample_Matcher)
+
 # Sample Matcher
 
 Sample Matcher is a very simple app that allows the user to upload an .xlsx file containing characters or numbers on the first column (column A), and then input characters or numbers, one at a time, to check if they might be present on the uploaded list.
@@ -6,37 +9,42 @@ Sample Matcher is a very simple app that allows the user to upload an .xlsx file
 
 I developed this app to solve a very specific task I needed to perform as a laboratory worker and researcher: I had to find samples belonging to a list, but the samples were stored among other samples and I couldn't pinpoint their location withou checking one by one. Of course this simple app can be used for any kind of list matching as well.
 
-## How to use
-
-1. Select your .xlsx file and click Submit.
-2. Enter a string in the Match sample card and click Verify.
-3. If there is a match a 'Yes' message will be displayed. Otherwise a 'No' message will be displayed.
-
 ## Live version
 
-The latest version of this app is hosted at (https://sample.pubica-me.com).
+The latest version of this app can be used at my [server](https://sample.publica-me.com). 
+
+No uploaded data is stored.
 
 ## Install instructions
 
 You need to use a version of Python 3 to run this app.
 
 1. Clone the repo:
-´´´sh
+```
 $ git clone https://github.com/jonatasgz/Sample_Matcher.git
-´´´
+```
 
 2. Install the requirements:
-´´´sh
+```
 $ pip install -r requirements.txt
-´´´
+```
 
 3. Run the app:
-´´´sh
+```
 $ python app.py
-´´´
+```
 
-This will run the webserver app binding it to port 5020 by default.
-On my production environment I start the app by running webserver.py with gunicorn.
+The app will bind port 5020 by default.
+On my production environment I start the app by running webserver.py with gunicorn:
+```
+$ gunicorn --workers 4 --timeout 600 --worker-class gevent --bind localhost:5020 webserver:app
+```
+
+## How to use
+
+1. Select your .xlsx file and click Submit.
+2. Enter a string in the Match sample card and click Verify.
+3. If there is a match a 'Yes' message will be displayed. Otherwise a 'No' message will be displayed.
 
 ## Contributions
 
