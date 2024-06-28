@@ -16,14 +16,11 @@
 
 from flask import Flask, render_template, request, session
 import pandas as pd
-import os
-from dotenv import load_dotenv
+from tools import get_secret
 
 app = Flask(__name__)
 
-load_dotenv()
-
-app.secret_key = os.getenv('SECRET_KEY')
+app.secret_key = get_secret()
 
 # File upload settings
 app.config['MAX_CONTENT_LENGTH'] = 20 * 1024 * 1024
@@ -59,7 +56,7 @@ def upload():
     if request.method == 'POST':
         file = request.files['file']
         if file and allowed_file(file.filename):
-            db = pd.read_excel(file)
+            db = pd.read_excel(file, header = None)
             session['samples'] = db.iloc[:,0].to_list()
             msg = 'File successfuly imported'
             return render_template('home.html', msg=msg)

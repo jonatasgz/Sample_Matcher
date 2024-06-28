@@ -40,6 +40,8 @@ On my production environment I start the app by running webserver.py with gunico
 $ gunicorn --workers 4 --timeout 600 --worker-class gevent --bind localhost:5020 webserver:app
 ```
 
+A secret key is called 'MATCHER_SECRET_KEY' is fetched from your environment, if it exists. Otherwise a .env file will be created on the app root folder with a new key.
+
 ## How to use
 
 1. Select your .xlsx file and click Submit.
