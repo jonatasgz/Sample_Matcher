@@ -45,7 +45,7 @@ A secret key called 'MATCHER_SECRET_KEY' is fetched from your environment, if it
 ## How to use
 
 1. Select your .xlsx file and click Submit.
-2. Enter a string in the Match sample card and click Verify. A barcode reader with automatic enter is ideal to the job, since the input field has autofocus enabled
+2. Enter a string in the Match sample card and click Verify. A barcode reader with automatic enter is ideal for the job, since the input field has autofocus enabled
 3. If there is a match a 'Yes' message will be displayed. Otherwise a 'No' message will be displayed.
 
 ## Contributions
